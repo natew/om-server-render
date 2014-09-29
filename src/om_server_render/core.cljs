@@ -1,8 +1,7 @@
 (ns om-server-render.core
   (:require [om.core :as om :include-macros true]
             [om.dom :as dom :include-macros true]
-            [cognitect.transit :as t]
-            [om-server-render.web :as web]))
+            [cognitect.transit :as t]))
 
 (enable-console-print!)
 
@@ -34,5 +33,5 @@
 
 ;; Checking if this is running in Node
 (if (and (exists? js/module) (.-exports js/module))
-  (set! (.-exports js/module) #js {:toOm web/make-om-str})
+  (set! (.-exports js/module) #js {:toOm make-om-str})
   (init))

@@ -26,10 +26,14 @@
                         :source-paths ["src"]
                         :compiler {:output-to "om_server_render.js"
                                    :output-dir "out"
-                                   :optimizations :simple}}
+                                   :optimizations :simple
+                                   :preamble ["react/react.min.js"]
+                                   :externs ["react/externs/react.js"]}}
                        {:id "server"
                         :source-paths ["src" "cljs-server"]
                         :compiler {:output-to "server/server.js"
                                    :output-dir "server-out"
                                    :optimizations :simple
-                                   :target :nodejs}}]})
+                                   :target :nodejs
+                                   :preamble ["react/react.min.js"]
+                                   :externs ["react/externs/react.js"]}}]})

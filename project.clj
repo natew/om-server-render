@@ -3,15 +3,16 @@
   :url "http://example.com/FIXME"
 
   :dependencies [[org.clojure/clojure "1.6.0"]
-                 [org.clojure/clojurescript "0.0-2277"]
+                 [org.clojure/clojurescript "0.0-2322"]
                  [org.clojure/core.async "0.1.267.0-0d7780-alpha"]
-                 [om "0.6.5"]
+                 [om "0.7.3"]
                  [hiccup "1.0.5"]
                  [compojure "1.1.8"]
                  [com.cognitect/transit-cljs "0.8.158"]
                  [com.cognitect/transit-clj "0.8.229"]
                  [org.clojure/data.codec "0.1.0"]
-                 [clj-http "0.9.2"]]
+                 [clj-http "0.9.2"]
+                 [com.facebook/react "0.11.2"]]
 
   :plugins [[lein-cljsbuild "1.0.4-SNAPSHOT"]
             [lein-ring "0.8.11"]]
@@ -23,15 +24,12 @@
   :cljsbuild {
               :builds [{:id "om-server-render"
                         :source-paths ["src"]
-                        :compiler {
-                                   :output-to "om_server_render.js"
+                        :compiler {:output-to "om_server_render.js"
                                    :output-dir "out"
-                                   :optimizations :simple
-                                   :source-map "om_server_render.js.map"}}
+                                   :optimizations :simple}}
                        {:id "server"
                         :source-paths ["src" "cljs-server"]
                         :compiler {:output-to "server/server.js"
                                    :output-dir "server-out"
                                    :optimizations :simple
-                                   :target :nodejs
-                                   :source-map "server/server.js.map"}}]})
+                                   :target :nodejs}}]})
